@@ -3,7 +3,7 @@
 [中文版本](./README_zh_CN.md)
 ## 0x00 Background Overview
 
-At present, attacks against Web3 projects emerge in an endless stream, and the interactions between projects are becoming more and more complex. The interaction between various projects often introduces new security issues, and most Web3 development teams generally lack experience in cutting-edge security attack and defense. , while in the development of Web3 projects, the focus is on the business demonstration of the project and the realization of business functions, and there is no more energy to complete the construction of the security system. Therefore, in the absence of a security system, it is difficult to ensure the security of a Web3 project throughout its life cycle.
+At present, attacks against Web3 projects emerge in an endless stream, and the interactions between projects are becoming more and more complex. The interaction between various projects often introduces new security issues, and most Web3 development teams generally lack experience in cutting-edge security attack and defense.while in the development of Web3 projects, the focus is on the business demonstration of the project and the realization of business functions, and there is no more energy to complete the construction of the security system. Therefore, in the absence of a security system, it is difficult to ensure the security of a Web3 project throughout its life cycle.
 
 Usually, the project team will find an excellent blockchain security team to conduct security audits on its code in order to ensure the security of Web3 projects. When conducting security audits, various security practice requirements can be better achieved, but blockchain security the team's audit is only a short-term guidance, and does not allow the project team to establish its own security system.
 
@@ -44,7 +44,7 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 
 - Make sure to develop based on well-known libraries such as OpenZeppelin as much as possible;
 - Make sure to include a compiler that uses SafeMath or 0.8.x to avoid most overflow issues;
-- Make sure to follow function naming conventions, see: [solidity style guide](https://docs.soliditylang.org/en/v0.8.14/style-guide.html)；
+- Make sure to follow function naming conventions, see: [solidity style guide](https://docs.soliditylang.org/en/v0.8.14/style-guide.html);
 - Make sure that function and variable visibility are explicitly declared;
 - Make sure that the function return value is explicitly assigned;
 - Make sure that functions and parameters are well-annotated;
@@ -56,15 +56,15 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 - Make sure that the target address and function of low-level calls such as call are expected;
 - When using low-level calls such as call, limit Gas according to business needs;
 - Coding specifications are constrained, follow: first judge, then write variables, and then make external calls (Checks-Effects-Interactions);
-- Make sure that external contracts that interact in business are compatible with each other, such as: deflation/inflation tokens, reentrant tokens such as ERC-777, ERC-677, ERC-721, see: [Reentrancy Vulnerability Case](https://medium.com/amber-group/preventing-re-entrancy-attacks-lessons-from-history-c2d96480fac3)；
+- Make sure that external contracts that interact in business are compatible with each other, such as: deflation/inflation tokens, reentrant tokens such as ERC-777, ERC-677, ERC-721, see: [Reentrancy Vulnerability Case](https://medium.com/amber-group/preventing-re-entrancy-attacks-lessons-from-history-c2d96480fac3);
 - Make sure that external calls fully consider the risk of reentrancy;
 - Avoid using a lot of loops to assign/read the contract's storage variable;
 - Avoid the problem of excessive concentration of authority as much as possible, especially the authority to modify the key parameters of the contract, separate authority, and use governance, timelock contract or multi-signature contract to manage as much as possible;
 - The inheritance relationship of contracts should maintain linear inheritance, and ensure that the inherited contracts are really needed for business;
 - Avoid using on-chain block data as a seed source for random;
 - Make sure that the acquisition and use of random numbers fully consider the possibility of rollback attacks;
-- Use Chainlink's VRF to obtain reliable random, see: [Chainlink VRF](https://docs.chain.link/docs/chainlink-vrf/)；
-- Avoid using the token quantity of the third-party contract to directly calculate the LP Token price, see: [How to get the price of LP correctly](https://blog.alphafinance.io/fair-lp-token-pricing/)；
+- Use Chainlink's VRF to obtain reliable random, see: [Chainlink VRF](https://docs.chain.link/docs/chainlink-vrf/);
+- Avoid using the token quantity of the third-party contract to directly calculate the LP Token price, see: [How to get the price of LP correctly](https://blog.alphafinance.io/fair-lp-token-pricing/);
 - Avoid a single price source when obtaining prices through third-party contracts. It is recommended to use at least 3 price sources;
 - Use events as far as possible in key business processes to record the status of execution for data analysis when the project is running;
 - Reserve the switch for an emergency suspension of the global and core business, so that it is convenient to stop losses in time when a black swan event occurs;
@@ -77,15 +77,15 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 ### 3. Web front-end Security Configuration Requirements
 
 - Make sure that the HTTP communication of the whole site adopts HTTPS;
-- Make sure HSTS is configured to prevent man-in-the-middle attacks like: DNS hijacking, BGP hijacking，see：[HSTS Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)；
+- Make sure HSTS is configured to prevent man-in-the-middle attacks like: DNS hijacking, BGP hijacking,see：[HSTS Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security);
 - Make sure X-FRAME-OPTIONS is configured to prevent Clickjacking attacks, see: [X-FRAME-OPTIONS Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options);
-- Make sure X-Content-Type-Options are configured to combat the risks caused by browser sniff behavior, see：[X-Content-Type-Options Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)；
-- Make sure CSP policies are configured to prevent XSS attacks, see: [CSP Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)；
-- Make sure cookies related to permissions and user credentials are configured with HttpOnly, Secure, Expires, SameSite flags, see: [Cookie Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)；
+- Make sure X-Content-Type-Options are configured to combat the risks caused by browser sniff behavior, see：[X-Content-Type-Options Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options);
+- Make sure CSP policies are configured to prevent XSS attacks, see: [CSP Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP);
+- Make sure cookies related to permissions and user credentials are configured with HttpOnly, Secure, Expires, SameSite flags, see: [Cookie Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies);
 - Make sure that the sub-domains of different businesses are strictly separated to avoid the XSS problems of the sub-domains affecting each other;
-- Make sure that the referenced third-party resources are restricted by the integrity attribute, so as to avoid the third-party being hacked and the project's site from being affected, see：[SRI Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/Security/Subresource_Integrity)；
-- Make sure CORS is properly configured to only allow the specified origin domain, protocol and port to access the project's resources, see: [CORS Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS)；
-- Make sure that the addEventListener/postMessage implemented in the business has the origin and target of the check message, see：[postMessage Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)；
+- Make sure that the referenced third-party resources are restricted by the integrity attribute, so as to avoid the third-party being hacked and the project's site from being affected, see：[SRI Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/Security/Subresource_Integrity);
+- Make sure CORS is properly configured to only allow the specified origin domain, protocol and port to access the project's resources, see: [CORS Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS);
+- Make sure that the addEventListener/postMessage implemented in the business has the origin and target of the check message, see：[postMessage Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage);
 
 ## 0x03 Release Process
 
@@ -125,15 +125,15 @@ As far as possible through the events triggered in the key business processes to
 
 ### 2.Runtime environment security hardening
 
-- Make sure the security hardening of the server where the front-end code is located，such as：[Install HIDS](https://www.aliyun.com/product/aegis)，Login with SSH Key，[Set SSH login alert](https://medium.com/@alessandrocuda/ssh-login-alerts-with-sendmail-and-pam-3ef53aca1381
-  )，[Set up SSH login to google-auth](https://goteleport.com/blog/ssh-2fa-tutorial/
-  )  etc；
-- Make sure that DNS Sec is enabled in the DNS configuration, set a strong password for the management account on the domain name service management platform and enable 2 authentications；
+- Make sure the security hardening of the server where the front-end code is located,such as：[Install HIDS](https://www.aliyun.com/product/aegis),Login with SSH Key,[Set SSH login alert](https://medium.com/@alessandrocuda/ssh-login-alerts-with-sendmail-and-pam-3ef53aca1381
+  ),[Set up SSH login to google-auth](https://goteleport.com/blog/ssh-2fa-tutorial/
+  )  etc;
+- Make sure that DNS Sec is enabled in the DNS configuration, set a strong password for the management account on the domain name service management platform and enable 2 authentications;
 - Make sure that the cloud platform management account used by the project uses a strong password and has 2 authentications enabled;
 
 ### 3.Release Bug Bounty Program
 
-- Publish a bug bounty program or enter a well-known bug bounty platform to attract community white hats to escort the project; you can choose: [BugRap](https://bugrap.io/)，[code4rena](https://code4rena.com/)，[immunefi](https://immunefi.com/)；
+- Publish a bug bounty program or enter a well-known bug bounty platform to attract community white hats to escort the project; you can choose: [BugRap](https://bugrap.io/),[code4rena](https://code4rena.com/),[immunefi](https://immunefi.com/);
 
 ### 4.Form Emergency Response Group
 
@@ -152,9 +152,9 @@ As far as possible through the events triggered in the key business processes to
 
 ### 3.Tracking Hacker Requirements
 
-- Quickly analyze the hacker's profitable address, and keep the access log of the PC/Web/server (if there is a Trojan , please keep the Trojan file);
+- Quickly analyze the hacker's profitable address, and keep the access log of the PC/Web/server (if there is a Trojan, please keep the Trojan file);
 - Take a snapshot of the server and keep the hacked scene in time;
-- Contact a professional security team to assist in tracking, such as: [MistTrack ](https://misttrack.io/)，[Chainalysis](https://www.chainalysis.com/)；
+- Contact a professional security team to assist in tracking, such as: [MistTrack ](https://misttrack.io/),[Chainalysis](https://www.chainalysis.com/);
 
 ### 4.Problem-solving Requirements
 
