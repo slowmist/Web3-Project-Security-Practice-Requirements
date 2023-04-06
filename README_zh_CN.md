@@ -73,7 +73,17 @@
 - 确保包含业务流程/函数功能可用性测试；
 - 确保包含单元测试覆盖率95%以上，核心代码覆盖率要达到100%；
 
-### 3. Web 前端安全配置要求
+### 3. 基础安全配置要求
+
+- 确保官方邮箱使用知名服务商，如 Gmail；
+- 确保官方邮箱账号强制开启 MFA 功能；
+- 确保使用知名域名服务商，如 GoDaddy；
+- 确保域名服务商平台的账号开启 MFA 安全配置；
+- 确保使用优秀的 CDN 服务提供商，如 Akamai、Cloudflare；
+- 确保 DNS 配置开启了 DNSSec，在域名服务管理平台上为管理账号设置强口令并开启 MFA 认证；
+- 确保全员的手机和电脑设备使用杀毒软件，如卡巴斯基、AVG等；
+
+### 4. Web 前端安全配置要求
 
 - 确保全站的 HTTP 通讯采用 HTTPS；
 - 确保配置了HSTS，以防止中间人攻击，如：DNS hijacking，BGP hijacking，参考：[HSTS 配置介绍](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)；
@@ -85,6 +95,14 @@
 - 确保引用的第三方资源使用了 integrity 属性进行限制，避免第三方被黑导致项目方的站点受到影响，参考：[SRI 配置介绍](https://developer.mozilla.org/zh-CN/docs/Web/Security/Subresource_Integrity)；
 - 确保正确配置 CORS，仅允许指定 origin 域，协议和端口访问项目的资源，参考：[CORS 配置介绍](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS)；
 - 确保业务中实现的 addEventListener/postMessage 有检查消息的 origin 和 target，参考：[postMessage 安全介绍](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)；
+
+### 5. 后端环境安全配置要求
+
+- 确保选用优秀的云服务器提供商，如：AWS、Google云等；
+- 确保项目使用到的云平台管理账号使用强口令并开启 MFA 认证；
+- 确保项目代码部署到服务器前对服务器进行安全加固，如：安装 HIDS，采用 SSH Key 进行登录，设置 SSH 登录 alert，设置 SSH 登录 google-auth 等；
+- 确保使用专业软件监控服务、服务器可用性，如 APM、Zabbix；
+- 确保使用专业的机构定期测试项目安全性，如 SlowMist、Trail of Bits等；
 
 ## 0x03 发布过程
 

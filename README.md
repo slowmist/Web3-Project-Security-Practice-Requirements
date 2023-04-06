@@ -74,7 +74,16 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 - Make sure to include business process/function functional usability testing;
 - Make sure that the unit test coverage rate is more than 95%, and the core code coverage rate must reach 100%;
 
-### 3. Web front-end Security Configuration Requirements
+### 3. Basic Security Configuration Requirements
+
+- Make sure that the official email uses well-known service providers, such as Gmail;
+- Make sure that the official email account opens MFA function;
+- Make sure that the use of well-known domain name service providers, such as GoDaddy;
+- Make sure that the use of excellent CDN service providers, such as Akamai and Cloudflare;
+- Make sure that DNS configuration turns on DNSSec, set a strong password for the management account on the domain name service management platform, and turn on MFA authentication;
+- Make sure that all mobile phones and computer devices use anti-virus software, such as Kaspersky, AVG, etc.;
+
+### 4. Web front-end Security Configuration Requirements
 
 - Make sure that the HTTP communication of the whole site adopts HTTPS;
 - Make sure HSTS is configured to prevent man-in-the-middle attacks like: DNS hijacking, BGP hijacking,see：[HSTS Configuration Introduction](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security);
@@ -86,6 +95,13 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 - Make sure that the referenced third-party resources are restricted by the integrity attribute, so as to avoid the third-party being hacked and the project's site from being affected, see：[SRI Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/Security/Subresource_Integrity);
 - Make sure CORS is properly configured to only allow the specified origin domain, protocol and port to access the project's resources, see: [CORS Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS);
 - Make sure that the addEventListener/postMessage implemented in the business has the origin and target of the check message, see：[postMessage Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage);
+
+### 5. Server Environment Security Configuration Requirements
+- Make sure that the selection of excellent cloud server providers, such as AWS, Google Cloud, etc.;
+- Make sure that the cloud platform management account used by the project uses a strong password and turns on MFA;
+- Make sure that the security reinforcement of the server before the project code is deployed to the server, such as installing HIDS, using SSH Key to log in, setting SSH login alert, setting SSH login google-auth, etc.;
+- Make sure that the use of professional software monitoring services and server availability, such as APM and Zabbix;
+- Make sure the use of professional institutions to regularly test the safety of projects, such as SlowMist, Trail of Bits, etc.;
 
 ## 0x03 Release Process
 
