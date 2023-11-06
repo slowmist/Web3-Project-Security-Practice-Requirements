@@ -42,7 +42,7 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 
 ### 1.Smart Contract Security Coding Requirements
 
-- Make sure to develop based on well-known libraries such as OpenZeppelin as much as possible;
+- Make sure to develop based on well-known libraries such as: OpenZeppelin as much as possible;
 - Make sure to include a compiler that uses SafeMath or 0.8.x to avoid most overflow issues;
 - Make sure to follow function naming conventions, see: [solidity style guide](https://docs.soliditylang.org/en/v0.8.14/style-guide.html);
 - Make sure that function and variable visibility are explicitly declared;
@@ -53,10 +53,10 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 - Make sure that the key parameters of the contract are set up with authentication and use events to record;
 - Make sure that the data structure of the new implementation contract of the upgradeable model is compatible with the data structure of the old implementation contract;
 - Make sure that the logic involved in arithmetic operations in the code fully considers the precision problem, and avoids the problem of possible loss of precision caused by dividing and then multiplying;
-- Make sure that the target address and function of low-level calls such as call are expected;
-- When using low-level calls such as call, limit Gas according to business needs;
+- Make sure that the target address and function of low-level calls such as: call are expected;
+- When using low-level calls such as: call, limit Gas according to business needs;
 - Coding specifications are constrained, follow: first judge, then write variables, and then make external calls (Checks-Effects-Interactions);
-- Make sure that external contracts that interact in business are compatible with each other, such as: deflation/inflation tokens, reentrant tokens such as ERC-777, ERC-677, ERC-721, see: [Reentrancy Vulnerability Case](https://medium.com/amber-group/preventing-re-entrancy-attacks-lessons-from-history-c2d96480fac3);
+- Make sure that external contracts that interact in business are compatible with each other, such as: deflation/inflation tokens, reentrant tokens such as: ERC-777, ERC-677, ERC-721, see: [Reentrancy Vulnerability Case](https://medium.com/amber-group/preventing-re-entrancy-attacks-lessons-from-history-c2d96480fac3);
 - Make sure that external calls fully consider the risk of reentrancy;
 - Avoid using a lot of loops to assign/read the contract's storage variable;
 - Avoid the problem of excessive concentration of authority as much as possible, especially the authority to modify the key parameters of the contract, separate authority, and use governance, timelock contract or multi-signature contract to manage as much as possible;
@@ -76,14 +76,14 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 
 ### 3. Basic Security Configuration Requirements
 
-- Make sure that the official email uses well-known service providers, such as Gmail;
+- Make sure that the official email uses well-known service providers, such as: Gmail;
 - Make sure that the official email account opens MFA function;
-- Make sure that the use of well-known domain name service providers, such as GoDaddy;
-- Make sure that the use of excellent CDN service providers, such as Akamai and Cloudflare;
+- Make sure that the use of well-known domain name service providers, such as: GoDaddy;
+- Make sure that the use of excellent CDN service providers, such as: Akamai and Cloudflare;
 - Make sure that DNS configuration turns on DNSSec, set a strong password for the management account on the domain name service management platform, and turn on MFA authentication;
-- Make sure that DNS resolution uses excellent domain name service providers, such as GoDaddy, NameSilo, NameCheap, etc.
+- Make sure that DNS resolution uses excellent domain name service providers, such as: GoDaddy, NameSilo, NameCheap, etc.
 - Make sure that domain privacy protection is turned on; 
-- Make sure that all mobile phones and computer devices use anti-virus software, such as Kaspersky, AVG, etc.;
+- Make sure that all mobile phones and computer devices use anti-virus software, such as: Kaspersky, AVG, etc.;
 
 ### 4. Web front-end Security Configuration Requirements
 
@@ -99,11 +99,11 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 - Make sure that the addEventListener/postMessage implemented in the business has the origin and target of the check message, see：[postMessage Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage);
 
 ### 5. Server Environment Security Configuration Requirements
-- Make sure that the selection of excellent cloud server providers, such as AWS, Google Cloud, etc.;
+- Make sure that the selection of excellent cloud server providers, such as: AWS, Google Cloud, etc.;
 - Make sure that the cloud platform management account used by the project uses a strong password and turns on MFA;
-- Make sure that the security reinforcement of the server before the project code is deployed to the server, such as installing HIDS, using SSH Key to log in, setting SSH login alert, setting SSH login google-auth, etc.;
-- Make sure that the use of professional software monitoring services and server availability, such as APM and Zabbix;
-- Make sure the use of professional institutions to regularly test the safety of projects, such as SlowMist, Trail of Bits, etc.;
+- Make sure that the security reinforcement of the server before the project code is deployed to the server, such as: installing HIDS, using SSH Key to log in, setting SSH login alert, setting SSH login google-auth, etc.;
+- Make sure that the use of professional software monitoring services and server availability, such as: APM and Zabbix;
+- Make sure the use of professional institutions to regularly test the safety of projects, such as: SlowMist, Trail of Bits, etc.;
 
 ## 0x03 Release Process
 
@@ -141,7 +141,7 @@ A complete security online release process is required, which can be refined by 
 As far as possible through the events triggered in the key business processes to discover the security problems of the project runtime, such as:
 
 - Update of important contract permissions/parameters: monitor the events that the management role changes, and the events that the management role modifies the key parameters of the contract, and promptly discover the possible theft of the private key;
-- Changes in contract funds: monitor price changes and changes in contract funds, and timely detect possible attacks such as flash loans;
+- Changes in contract funds: monitor price changes and changes in contract funds, and timely detect possible attacks such as: flash loans;
 - Periodic reconciliation: Periodically reconcile events and transactions on the chain to discover possible business logic problems in a timely manner;
 
 ### 2.Runtime environment security hardening
