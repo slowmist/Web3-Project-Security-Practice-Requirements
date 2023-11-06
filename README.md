@@ -81,6 +81,8 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 - Make sure that the use of well-known domain name service providers, such as GoDaddy;
 - Make sure that the use of excellent CDN service providers, such as Akamai and Cloudflare;
 - Make sure that DNS configuration turns on DNSSec, set a strong password for the management account on the domain name service management platform, and turn on MFA authentication;
+- Make sure that DNS resolution uses excellent domain name service providers, such as GoDaddy, NameSilo, NameCheap, etc.
+- Make sure that domain privacy protection is turned on; 
 - Make sure that all mobile phones and computer devices use anti-virus software, such as Kaspersky, AVG, etc.;
 
 ### 4. Web front-end Security Configuration Requirements
@@ -133,6 +135,9 @@ A complete security online release process is required, which can be refined by 
 
 ### 1.Runtime Security Monitoring
 
+- Make sure that the Netlify or Vercel used by the project has audit log or Monitoring turned on;
+- Make sure that DNS change monitoring is set up and commercial solutions can be used, such as: [Better Stack] (https://betterstack.com/docs/uptime/uptime-monitor/);
+
 As far as possible through the events triggered in the key business processes to discover the security problems of the project runtime, such as:
 
 - Update of important contract permissions/parameters: monitor the events that the management role changes, and the events that the management role modifies the key parameters of the contract, and promptly discover the possible theft of the private key;
@@ -160,6 +165,7 @@ As far as possible through the events triggered in the key business processes to
 ### 1.Establish A Complete Emergency Response Process
 
 - Develop a complete emergency response process as much as possible, and deal with black swan events in an orderly manner according to the emergency response process;
+- Regularly conduct security emergency response drills, refining procedures to ensure a prompt and accurate response to security incidents, such as: [SEAL Drills](https://twitter.com/samczsun/status/1717243519243636755).
 
 ### 2.Stop Loss Disposal Requirements
 
