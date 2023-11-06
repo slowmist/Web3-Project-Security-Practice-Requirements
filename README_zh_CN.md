@@ -103,8 +103,8 @@
 - 确保选用优秀的云服务器提供商，如：AWS、Google云等；
 - 确保项目使用到的云平台管理账号使用强口令并开启 MFA 认证；
 - 确保项目代码部署到服务器前对服务器进行安全加固，如：安装 HIDS，采用 SSH Key 进行登录，设置 SSH 登录 alert，设置 SSH 登录 google-auth 等；
-- 确保使用专业软件监控服务、服务器可用性，如 APM、Zabbix；
-- 确保使用专业的机构定期测试项目安全性，如 SlowMist、Trail of Bits等；
+- 确保使用专业软件监控服务、服务器可用性，如：APM、Zabbix；
+- 确保使用专业的机构定期测试项目安全性，如：SlowMist、Trail of Bits等；
 
 ## 0x03 发布过程
 
