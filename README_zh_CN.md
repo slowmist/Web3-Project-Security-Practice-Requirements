@@ -42,7 +42,7 @@
 ### 1.智能合约安全编码要求
 
 - 确保包含尽可能基于 OpenZeppelin  等知名 library 进行开发；
-- 确保包含使用 SafeMath 或 0.8.x 的编译器来避免绝大部分溢出问题；
+- 确保包含使用 SafeMath 或 0.8.x 以上的编译器版本来避免绝大部分溢出问题；
 - 确保遵循函数命名规范，参考: [solidity style guide](https://docs.soliditylang.org/en/v0.8.14/style-guide.html)；
 - 确保函数和变量可见性采用显性声明；
 - 确保函数返回值被显性赋值；
@@ -75,13 +75,14 @@
 
 ### 3. 基础安全配置要求
 
+- 确保使用有效的 CI/CD Pipeline 参考：[CI/CD Pipeline for Smart Contracts](https://docs.tenderly.co/forks/guides/ci-cd-pipeline-for-smart-contracts)；
 - 确保官方邮箱使用知名服务商，如：Gmail；
 - 确保官方邮箱账号强制开启 MFA 功能；
 - 确保使用知名域名服务商，如：GoDaddy；
 - 确保域名服务商平台的账号开启 MFA 安全配置；
-- 确保使用优秀的 CDN 服务提供商，如：Akamai、Cloudflare等；
+- 确保使用优秀的 CDN 服务提供商，如：Akamai、Cloudflare 等；
 - 确保 DNS 配置开启了 DNSSec，在域名服务管理平台上为管理账号设置强口令并开启 MFA 认证；
-- 确保 DNS 解析使用优秀的域名服务商，如：GoDaddy、NameSilo、NameCheap等；
+- 确保 DNS 解析使用优秀的域名服务商，如：GoDaddy、NameSilo、NameCheap 等；
 - 确保开启域名隐私保护； 
 - 确保全员的手机和电脑设备使用杀毒软件，如：卡巴斯基、AVG等；
 
@@ -105,6 +106,8 @@
 - 确保项目代码部署到服务器前对服务器进行安全加固，如：安装 HIDS，采用 SSH Key 进行登录，设置 SSH 登录 alert，设置 SSH 登录 google-auth 等；
 - 确保使用专业软件监控服务、服务器可用性，如：APM、Zabbix；
 - 确保使用专业的机构定期测试项目安全性，如：SlowMist、Trail of Bits等；
+- 确保开启服务器日志，Web 访问日志，数据库操作日志，中间件日志，并统一采集和管理可以使用 [splunk](https://www.splunk.com/) 的解决方案；
+- 确保项目的服务器做好网络的访问限制，通过 IP 白名单地址和网段划分，对项目的网络架构进行优化和规范，仅允许业务上需要的服务器之间的网络互通；
 
 ## 0x03 发布过程
 
@@ -129,6 +132,7 @@
 
 ### 5.安全审计要求
 
+- 培养内部安全团队，每次新的代码都需要经过内部安全团队进行 code review，同时不断提高和培养内部安全团队的能力，参考：[《SlowMist-Learning-Roadmap-for-Becoming-a-Smart-Contract-Auditor》](https://github.com/slowmist/SlowMist-Learning-Roadmap-for-Becoming-a-Smart-Contract-Auditor)；
 - 安全审计人员在代码冻结后进入整体安全回归，如发现任一漏洞或安全隐患（严重、高危、中危），则推迟上线时间，开发完成修改后重新进入代码冻结（即推迟至少2天）
 - 安全审计需要至少三个团队进行独立的审计，可以采用1个内部团队+2个外部团队；
 
@@ -151,6 +155,7 @@
   )  等；
 - 确保 DNS 配置开启了 DNS Sec，在域名服务管理平台上为管理账号设置强口令并开启2次认证；
 - 确保项目使用到的云平台管理账号使用了强口令并开启了2次认证；
+- 确保更好 DNS 解析等操作开了了2次认证；
 
 
 ### 3.发布漏洞赏金计划
@@ -193,3 +198,22 @@
 - 披露验尸报告并与社区成员同步修复方案及补救措施；
 - 验尸报告需要同步问题的本质原因，问题的影响范围，具体的损失，问题的修复情况，黑客的追踪等相关进展；
 
+
+## 0x06 安全意识培训与养成
+
+### 1.培养安全意识
+
+- 团队成员要仔细详尽阅读[《区块链黑暗森林自救手册》](https://darkhandbook.io/) 培养相关的安全意识；
+- 可以通过一些在线的安全意识测试网站来进行培训和测验，如：[Google's Phishing Quiz](https://phishingquiz.withgoogle.com/)，[Phishing.org](https://www.phishing.org/phishing-resources)；
+- 同时在团队管理中应当加入安全意识培训和考核的环节，如：新成员入职要进行安全意识的培训和测验，如果是IT岗位的人员还应当对代码开发，系统运维等维度的安全意识进行培训和考核；
+- 并且周期性地组织安全意识培训，将近期黑客新的攻击手法和相关的安全事件进行同步。
+
+### 2.关注生态中的安全事件
+
+- 关注 [ScamSniffer](https://x.com/realScamSniffer)，[Wallet Guard](https://x.com/wallet_guard) 这类专注于 Crypto Anti-Scam 团队的动态，了解当下流行的钓鱼攻击手法；
+- 关注社区或者生态中的安全事件，整理并同步给团队成员。
+
+### 3.安全意识考察与演练
+
+- 周期性对团队成员的安全意识进行考察，可以和优秀的安全公司合作，进行相关的安全演练；
+- 可以通过模拟黑客的攻击方式对团队成员进行钓鱼或投放木马来对团队成员的安全意识进行考察，同时也能够对团队成员设备上的终端安全防护系统进行检测能力的验证。

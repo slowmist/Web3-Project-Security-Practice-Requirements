@@ -43,12 +43,12 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 ### 1.Smart Contract Security Coding Requirements
 
 - Make sure to develop based on well-known libraries such as: OpenZeppelin as much as possible;
-- Make sure to include a compiler that uses SafeMath or 0.8.x to avoid most overflow issues;
+- Make sure to include a compiler that uses SafeMath or a compiler version above 0.8.x to prevent most overflow issues;
 - Make sure to follow function naming conventions, see: [solidity style guide](https://docs.soliditylang.org/en/v0.8.14/style-guide.html);
 - Make sure that function and variable visibility are explicitly declared;
 - Make sure that the function return value is explicitly assigned;
 - Make sure that functions and parameters are well-annotated;
-- Make sure that external calls correctly check the return value, including: transfer, transferFrom, send, call, delegatecall, etc.;
+- Make sure that external calls correctly check the return value, including: transfer, transferFrom, send, call, delegatecall, etc;
 - Make sure that the implementation of the parameter type and return value of the interface is correct;
 - Make sure that the key parameters of the contract are set up with authentication and use events to record;
 - Make sure that the data structure of the new implementation contract of the upgradeable model is compatible with the data structure of the old implementation contract;
@@ -76,6 +76,7 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 
 ### 3. Basic Security Configuration Requirements
 
+- Make sure that use of an effective CI/CD Pipeline, see: [CI/CD Pipeline for Smart Contracts](https://docs.tenderly.co/forks/guides/ci-cd-pipeline-for-smart-contracts)；
 - Make sure that the official email uses well-known service providers, such as: Gmail;
 - Make sure that the official email account opens MFA function;
 - Make sure that the use of well-known domain name service providers, such as: GoDaddy;
@@ -83,7 +84,7 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 - Make sure that DNS configuration turns on DNSSec, set a strong password for the management account on the domain name service management platform, and turn on MFA authentication;
 - Make sure that DNS resolution uses excellent domain name service providers, such as: GoDaddy, NameSilo, NameCheap, etc.
 - Make sure that domain privacy protection is turned on; 
-- Make sure that all mobile phones and computer devices use anti-virus software, such as: Kaspersky, AVG, etc.;
+- Make sure that all mobile phones and computer devices use anti-virus software, such as: Kaspersky, AVG, etc;
 
 ### 4. Web front-end Security Configuration Requirements
 
@@ -99,11 +100,13 @@ Therefore, the SlowMist security team has open-sourced **`Web3 Project Security 
 - Make sure that the addEventListener/postMessage implemented in the business has the origin and target of the check message, see：[postMessage Configuration Introduction](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage);
 
 ### 5. Server Environment Security Configuration Requirements
-- Make sure that the selection of excellent cloud server providers, such as: AWS, Google Cloud, etc.;
+- Make sure that the selection of excellent cloud server providers, such as: AWS, Google Cloud, etc;
 - Make sure that the cloud platform management account used by the project uses a strong password and turns on MFA;
-- Make sure that the security reinforcement of the server before the project code is deployed to the server, such as: installing HIDS, using SSH Key to log in, setting SSH login alert, setting SSH login google-auth, etc.;
+- Make sure that the security reinforcement of the server before the project code is deployed to the server, such as: installing HIDS, using SSH Key to log in, setting SSH login alert, setting SSH login google-auth, etc;
 - Make sure that the use of professional software monitoring services and server availability, such as: APM and Zabbix;
-- Make sure the use of professional institutions to regularly test the safety of projects, such as: SlowMist, Trail of Bits, etc.;
+- Make sure that the use of professional institutions to regularly test the safety of projects, such as: SlowMist, Trail of Bits, etc;
+- Make sure that server logs, web access logs, database operation logs, and middleware logs are enabled. Utilize a solution like [splunk](https://www.splunk.com/) for centralized log collection and management;
+- Make sure that project servers have network access restrictions in place. Utilize IP whitelists and network segmentation to optimize and regulate the project's network architecture, ensuring network connectivity only between servers required for business operations;
 
 ## 0x03 Release Process
 
@@ -128,6 +131,7 @@ A complete security online release process is required, which can be refined by 
 
 ### 5.Security Audit Requirements
 
+- Create an internal security team. All new code implementations must be code-reviewed by the internal security team. Continuously refine and cultivate the internal security team's competencies, see: [SlowMist-Learning-Roadmap-for-Becoming-a-Smart-Contract-Auditor](https://github.com/slowmist/SlowMist-Learning-Roadmap-for-Becoming-a-Smart-Contract-Auditor);
 - Security auditors enter the overall security regression after the code is frozen. If any vulnerability or security risk (serious, high-risk, medium-risk) is found, the launch time will be postponed, and the code will be frozen again after the development and modification are completed (that is, delayed for at least 2 days).
 - Security audit requires at least three teams to conduct independent audits, and can use 1 internal team + 2 external teams;
 
@@ -151,6 +155,8 @@ As far as possible through the events triggered in the key business processes to
   )  etc;
 - Make sure that DNS Sec is enabled in the DNS configuration, set a strong password for the management account on the domain name service management platform and enable 2 authentications;
 - Make sure that the cloud platform management account used by the project uses a strong password and has 2 authentications enabled;
+- Make sure that two-factor authentication is enabled for improved DNS resolution and other operations;
+
 
 ### 3.Release Bug Bounty Program
 
@@ -191,3 +197,23 @@ As far as possible through the events triggered in the key business processes to
 
 - Disclose autopsy reports and synchronize restoration plans and remedies with community members;
 - The autopsy report needs to synchronize the essential cause of the problem, the scope of the problem, the specific loss, the repair of the problem, the tracking of the hacker and other related progress;
+
+
+## 0x06 Security Awareness Cultivation
+
+### 1.Cultivate security awareness
+
+- Project team members must thoroughly review the [Blockchain Dark Forest Selfguard Handbook](https://darkhandbook.io/) to cultivate a strong security awareness.
+- Online security awareness training and testing can be conducted through various websites, such as [Google's Phishing Quiz](https://phishingquiz.withgoogle.com/) and [Phishing.org](https://www.phishing.org/phishing-resources);
+- Security awareness training and assessment should be integrated into team management practices. For instance, new hires should undergo security awareness training and testing, and IT personnel should receive additional training and assessment in areas such as code development and system operation security;
+- Regularly conduct security awareness training to keep team members informed about the latest hacker attack techniques and related security incidents;
+
+### 2.Track security incidents in the ecosystem
+
+- Follow the updates from Crypto Anti-Scam teams like [ScamSniffer](https://x.com/realScamSniffer) and [Wallet Guard](https://x.com/wallet_guard) to stay informed about the latest phishing attack techniques;
+- Stay informed about security incidents within the community or ecosystem, compile information, and share it with team members;
+
+### 3.Security Awareness Assessment and Drills
+
+- Conduct periodic security awareness assessments for team members. Collaborate with reputable security companies to conduct relevant security drills;
+- Security awareness assessments for team members can be conducted by simulating hacker attack methods, such as phishing or Trojan horse attacks. This not only evaluates team members' security awareness but also verifies the detection capabilities of endpoint security protection systems on their devices;
