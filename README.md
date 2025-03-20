@@ -1,6 +1,8 @@
 # Web3 Project Security Practice Requirements v0.1
 
-[中文版本](./README_zh_CN.md)
+[中文版本](./README_zh_CN.md), 
+[日本語版](./README_ja_JP.md)
+
 ## 0x00 Background Overview
 
 At present, attacks against Web3 projects emerge in an endless stream, and the interactions between projects are becoming more and more complex. The interaction between various projects often introduces new security issues, and most Web3 development teams generally lack experience in cutting-edge security attack and defense.while in the development of Web3 projects, the focus is on the business demonstration of the project and the realization of business functions, and there is no more energy to complete the construction of the security system. Therefore, in the absence of a security system, it is difficult to ensure the security of a Web3 project throughout its life cycle.
